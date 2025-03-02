@@ -1,0 +1,244 @@
+ \documentclass[
+  % all of the below options are optional and can be left out
+  % course name (default: 2IL50 Data Structures)
+  course = {{Data Visualisasi dan Pemrosesan Citra}},
+  % quartile (default: 3)
+  %quartile = {{4}},
+  % assignment number/name (default: 1)
+  assignment = 2,
+  % student name (default: Some One)
+  name = {{Dosen Pengampu Matkul 1 ; Dosen Pengampu Matkul 2}},
+  % student number, NOT S-number (default: 0123456)
+  studentnumber = {{ ; }},
+  % student email (default: s.one@student.tue.nl)
+  email = {{Prof. Dr. Suprijadi, M.Eng. ; Dr. Irfan Dwi Aditya, S.Si., M.Si.}},
+  % first exercise number (default: 1)
+  firstexercise = 1
+]{aga-homework}
+
+\usepackage{listings} % Tambahkan paket listings
+\usepackage{xcolor}    % Untuk warna (opsional)
+
+
+\lstset{
+    language=Python,   
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},  
+    commentstyle=\color{gray},  
+    stringstyle=\color{red},    
+    numbers=left,               
+    numberstyle=\tiny\color{gray}, 
+    stepnumber=1,               
+    breaklines=true,             
+    frame=single,               
+}
+
+
+\begin{document}
+\begin{center}
+    \textbf{M. Naufaldi Dzakwan (10024107) \LaTeX{}}
+\end{center}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\linewidth]{soal.jpg}
+    %\caption{Intruksi Soal}
+    \label{fig:enter-label}
+\end{figure}
+
+\title{\textbf{Instruksi Soal}}
+
+ Pada Tugas Vis-Dat & Imaging kali ini diberikan sebuah dataset seperti pada gambar diatas. Yang dimana ada beberapa perlakuan untuk mengolah dataset diatas yaitu : \LaTeX{} 
+
+\begin{enumerate}
+    \item \textbf{Membuat CSV dari tabel data sampling}.
+    \begin{itemize}
+        \item Data dari gambar dikonversi ke dalam format CSV agar dapat diolah dengan Python.
+    \end{itemize}
+    
+    \item \textbf{Menampilkan tabel data dengan Pandas}.
+    \begin{itemize}
+        \item Data CSV dibaca menggunakan Pandas dan ditampilkan dalam bentuk tabel.
+    \end{itemize}
+    
+    \item \textbf{Menghitung Statistik Dasar}.
+    \begin{itemize}
+        \item Menghitung nilai rata-rata (mean), median, dan modus dari setiap variabel.
+    \end{itemize}
+    
+    \item \textbf{Membuat Scatter Plot}.
+    \begin{itemize}
+        \item Scatter plot dibuat untuk melihat hubungan antara variabel-variabel dalam dataset.
+    \end{itemize}
+    
+    \item \textbf{Membuat Histogram untuk Sebaran Data}.
+    \begin{itemize}
+        \item Histogram dibuat dengan rentang 15 untuk melihat distribusi keseluruhan data.
+    \end{itemize}
+    
+    \item \textbf{Membuat Kurva XY (X1 sebagai sumbu X dan X4 sebagai sumbu Y)}.
+    \begin{itemize}
+        \item Hubungan antara variabel X1 dan X4 divisualisasikan dalam bentuk kurva XY.
+    \end{itemize}
+    
+    \item \textbf{Membuat Heatmap dari Data}.
+    \begin{itemize}
+        \item Heatmap dibuat untuk melihat korelasi antara variabel-variabel dalam dataset.
+    \end{itemize}
+\end{enumerate}
+
+
+\exercise
+
+\nolinenumbers
+    \lstinputlisting[caption= Tugas 1 dan 2 Tabel Data CSV, language=Python,label=code]{No_2.py}
+\linenumbers
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.12\linewidth]{No2.PNG}
+    \caption{Output Program Code 1}
+    \label{fig:enter-label}
+\end{figure}
+\section{}
+\subsection{Analisis Program}
+Langkah pertama adalah mengubah data dari gambar menjadi file CSV agar dapat diproses lebih lanjut. CSV (Comma-Separated Values) adalah format yang umum digunakan untuk menyimpan data tabular karena mudah dibaca dan digunakan oleh berbagai program. Data yang diperoleh dari tabel diketik ulang atau diekstrak menggunakan teknik pengolahan gambar, kemudian disimpan dalam file CSV menggunakan Pandas. 
+\newline
+
+
+Setelah data CSV dibaca, tabel ditampilkan menggunakan Pandas untuk memudahkan analisis. Untuk meningkatkan keterbacaan, digunakan fitur \texttt{df.style.set \textunderscore properties()} agar tabel memiliki tampilan yang lebih rapi dengan garis tepi yang jelas.  
+
+Penyajian tabel dalam format yang lebih terstruktur ini membuat data lebih mudah dianalisis serta memberikan tampilan yang lebih estetis, mirip dengan spreadsheet seperti Excel.
+
+
+
+\exercise
+\nolinenumbers
+    \lstinputlisting[caption= Tugas 3 Menghitung Statistik, language=Python,label=code]{No_3(.py}
+\linenumbers
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.12\linewidth]{No3.PNG}
+    \caption{Output Program Code 2}
+    \label{fig:enter-label}
+\end{figure}
+\section{}
+\subsection{Analisis Program}
+
+Untuk memahami distribusi data, kita menghitung tiga ukuran statistik dasar:
+
+\begin{itemize}
+    \item \textbf{Mean (Rata-rata)} dihitung menggunakan \texttt{df.mean()}, yang memberikan gambaran umum mengenai nilai tengah dari seluruh data.
+    \item \textbf{Median} dihitung dengan \texttt{df.median()}, yang menunjukkan nilai tengah ketika data diurutkan. Median berguna untuk mengatasi data yang memiliki outlier.
+    \item \textbf{Modus} diperoleh dengan \texttt{df.mode()}, yaitu nilai yang paling sering muncul dalam dataset.
+\end{itemize}
+
+Dengan menghitung ketiga ukuran ini, kita bisa lebih memahami karakteristik data sebelum melakukan visualisasi lebih lanjut. 
+
+\exercise
+
+\nolinenumbers
+    \lstinputlisting[caption= Tugas 4 Membuat Scatter plot, language=Python,label=code]{No_4(.py}
+\linenumbers
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{No4.png}
+    \caption{Output Program Code 4}
+    \label{fig:enter-label}
+\end{figure}
+\section{}
+\subsection{Analisis Program}
+
+Scatter plot digunakan untuk melihat hubungan antar variabel dalam dataset. Dalam analisis ini, scatter plot dibuat untuk beberapa pasangan variabel, yaitu:
+
+\begin{itemize}
+    \item \textbf{X1 vs X4}, yang divisualisasikan dengan warna biru.
+    \item \textbf{X2 vs X3}, yang divisualisasikan dengan warna merah.
+    \item \textbf{X1 vs X3}, yang divisualisasikan dengan warna hijau.
+    \item \textbf{X2 vs X34}, yang divisualisasikan dengan warna ungu.
+\end{itemize}
+
+Scatter plot membantu dalam memahami pola hubungan antara dua variabel. Jika titik-titik data membentuk pola tertentu, seperti garis lurus atau lengkungan, maka dapat diindikasikan adanya korelasi antara kedua variabel. Hubungan tersebut bisa berupa korelasi positif (nilai X meningkat, nilai Y juga meningkat) atau korelasi negatif (nilai X meningkat, tetapi nilai Y menurun).  
+
+Selain itu, scatter plot juga dapat digunakan untuk mendeteksi outlier, yaitu data yang jauh berbeda dari pola utama. Outlier ini bisa menjadi indikasi kesalahan pengukuran atau variasi unik dalam data. Dengan scatter plot, kita dapat memperoleh wawasan awal mengenai keterkaitan antar variabel sebelum melakukan analisis lebih lanjut.  
+
+
+\exercise
+\nolinenumbers
+    \lstinputlisting[caption= Tugas 5 Membuat Histogram, language=Python,label=code]{No_5.py}
+\linenumbers
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{No5.png}
+    \caption{Output Program Code 5}
+    \label{fig:enter-label}
+\end{figure}
+\section{}
+\subsection{Analisis Program}
+
+Histogram digunakan untuk memvisualisasikan distribusi keseluruhan data dalam dataset. Pada analisis ini, histogram dibuat dengan lebar rentang sebesar 15 untuk memastikan distribusi data dapat terlihat dengan jelas.
+
+Sumbu \textbf{X} pada histogram merepresentasikan nilai-nilai dalam dataset, yang dikelompokkan dalam interval (bin) sebesar 15, sehingga titik-titik batasnya berada pada 0, 15, 30, 45, dan seterusnya. Sementara itu, sumbu \textbf{Y} menunjukkan jumlah kemunculan data dalam setiap rentang tersebut.
+
+Histogram membantu dalam memahami bagaimana data tersebar, apakah memiliki distribusi normal, apakah terdapat pencilan (outlier), atau apakah terdapat skewness (kemiringan) dalam distribusi. Jika histogram berbentuk simetris dengan puncak di tengah, maka distribusinya mendekati normal.
+
+
+\exercise[6]
+\nolinenumbers
+    \lstinputlisting[caption= Tugas 6 Membuat Kurva XY, language=Python,label=code]{No_6.py}
+\linenumbers
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{No6.png}
+    \caption{Output Program Code 6}
+    \label{fig:enter-label}
+\end{figure}
+\section{}
+\subsection{Analisis Program}
+
+Kurva XY digunakan untuk melihat hubungan antara variabel \textbf{X1} dan \textbf{X4}. Namun, hasil visualisasi menunjukkan pola yang tidak beraturan atau acak. Hal ini dapat disebabkan oleh beberapa faktor, antara lain:  
+
+\begin{itemize}
+    \item Tidak ada hubungan yang kuat antara X1 dan X4, sehingga data tidak membentuk pola yang jelas.
+    \item Adanya \textit{noise} dalam data, yang menyebabkan fluktuasi tinggi dan pola yang tidak teratur.
+    \item Data tidak diurutkan dengan benar, sehingga tampilan kurva menjadi tidak sesuai dengan ekspektasi.
+    \item Pengaruh faktor lain terhadap X4 yang tidak diperhitungkan dalam analisis ini.
+\end{itemize}  
+
+Untuk memastikan apakah ada hubungan antara kedua variabel, dapat dilakukan analisis korelasi menggunakan fungsi \texttt{df.corr()}. Jika nilai korelasinya mendekati nol, maka X1 dan X4 memang tidak memiliki hubungan yang signifikan.
+
+\exercise
+\nolinenumbers
+    \lstinputlisting[caption= Tugas 7 Membuat Heatmap, language=Python,label=code]{No_7.py}
+\linenumbers
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{No7.png}
+    \caption{Output Program Code 7}
+    \label{fig:enter-label}
+\end{figure}
+\section{}
+\subsection{Analisis Program}
+
+Heatmap digunakan untuk memvisualisasikan hubungan antar variabel dalam bentuk matriks warna. Setiap sel dalam heatmap merepresentasikan nilai korelasi antara dua variabel, dengan warna menunjukkan tingkat hubungan.  
+
+Angka pada heatmap menunjukkan koefisien korelasi Pearson, yang berkisar antara -1 hingga 1:  
+\begin{itemize}
+    \item Nilai mendekati \textbf{1} menunjukkan korelasi positif kuat (kedua variabel bergerak searah).
+    \item Nilai mendekati \textbf{-1} menunjukkan korelasi negatif kuat (salah satu naik, yang lain turun).
+    \item Nilai mendekati \textbf{0} berarti tidak ada hubungan yang signifikan.
+\end{itemize}  
+
+Dengan heatmap, pola hubungan antar variabel dapat dianalisis secara cepat, sehingga memudahkan dalam memahami keterkaitan dalam dataset.
+\newline\newline
+Untuk detail kode, silakan kunjungi repository GitHub berikut:  
+\newline
+https://github.com/mndzww/DatVis_Imaging_StudEx}
+
+
+\end{document}
